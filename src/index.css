@@ -3,7 +3,7 @@
 Fonts
 ===============
 */
-@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=Spartan:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Fraunces:wght@400;900&display=swap');
 
 /*
 =============== 
@@ -13,22 +13,14 @@ Variables
 
 :root {
   /* primary/main color */
-  --clr-primary-white: hsl(0, 0%, 100%);
-  --clr-primary-very-dark-grey: hsl(240, 67%, 8%);
-  --clr-primary-dark-grey: hsl(240, 17%, 26%);
-  --clr-primary-grey: hsl(240, 6%, 54%);
-  --clr-primary-light-grey: hsl(240, 2%, 79%);
-  --clr-primary-light-blue-mercury: hsl(194, 48%, 49%);
-  --clr-primary-yellow-venus: hsl(33, 82%, 61%);
-  --clr-primary-magenta-earth: hsl(263, 67%, 51%);
-  --clr-primary-brick-mars: hsl(10, 63%, 51%);
-  --clr-primary-red-jupiter: hsl(2, 68%, 53%);
-  --clr-primary-brown-saturn: hsl(17, 73%, 46%);
-  --clr-primary-green-uranus: hsl(169, 73%, 44%);
-  --clr-primary-blue-neptune: hsl(222, 87%, 56%);
+  --clr-primary-dark-cyan: hsl(179, 81%, 29%);
+  --clr-primary-dark-grey-blue: hsl(215, 19%, 25%);
+  --clr-primary-pale-orange: hsl(25, 94%, 86%);
+  --clr-primary-light-cream: hsl(43, 78%, 98%);
+  --clr-primary-grey: hsl(215, 5%, 54%);
 
-  --ff-primary: 'Spartan', sans-serif;
-  --ff-secondary: 'Antonio', sans-serif;
+  --ff-primary: 'Barlow', sans-serif;
+  --ff-secondary: 'Fraunces', sans-serif;
   --transition: all 0.3s linear;
   --spacing: 0.1rem;
   --radius: 0.25rem;
@@ -55,7 +47,7 @@ Global Styles
 body {
   /* background: var(--clr-primary-very-dark-grey); */
   /* background-image: url('./utils/assets/background-stars.svg'); */
-  color: var(--clr-primary-white);
+  color: black;
   font: var(--ff-primary);
   transition: var(--transition);
   margin: 0 auto;
@@ -80,42 +72,42 @@ h1,
 h2,
 h3,
 h4 {
-  /* letter-spacing: var(--spacing); */
-  text-transform: uppercase;
-  /* line-height: 1.25;
-  margin-bottom: 0.75rem; */
+  font-family: var(--ff-secondary);
 }
 h1 {
-  font-size: 80px;
-  font-family: var(--ff-secondary);
-  line-height: 103px;
+  font-size: 72px;
+  line-height: 72px;
 }
 h2 {
   font-size: 40px;
-  font-family: var(--ff-secondary);
-  line-height: 52px;
-  letter-spacing: -1.5px;
+  line-height: 48px;
 }
 h3 {
-  font-size: 12px;
-  font-family: var(--ff-primary);
-  line-height: 25px;
-  letter-spacing: 0.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-size: 32px;
+  line-height: 36px;
 }
 h4 {
-  font-size: 11px;
-  font-family: var(--ff-primary);
-  line-height: 25px;
-  font-weight: 700;
-  letter-spacing: 1;
+  font-size: 24px;
+  line-height: 32px;
+}
+h5 {
+  font-size: 150px;
+  text-transform: lowercase;
+  line-height: 72px;
+  font-family: var(--ff-secondary);
 }
 p {
-  font-size: 14px;
+  font-size: 16px;
   font-family: var(--ff-primary);
-  line-height: 25px;
+  line-height: 26px;
   margin-bottom: 1.25rem;
+}
+p .navigation {
+  font-family: var(--ff-primary);
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
 }
 .btn {
   background: var(--clr-primary-soft-blue);
