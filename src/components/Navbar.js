@@ -17,19 +17,21 @@ const Navbar = () => {
         <div className='nav-header'>
           <div className='logo'>
             <Link to='/'>
-              <img src={logo} alt='' />
+              <img className='logo-img' src={logo} alt='' />
             </Link>
           </div>
           <button type='button' className='nav-toggle' onClick={toggleSidebar}>
             {isSidebarOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
-        <div className='nav-links'>
-          <ul>
+        <div>
+          <ul className='nav-links'>
             {links.map((item) => {
               return (
                 <li key={item.id} className='nav-link'>
-                  <Link to={item.url}>{item.text}</Link>
+                  <Link className='single-nav-link' to={item.url}>
+                    {item.text}
+                  </Link>
                 </li>
               );
             })}
@@ -42,12 +44,23 @@ const Navbar = () => {
         <ul className='sidebar-links'>
           {links.map((item) => {
             return (
-              <li key={item.id} className='sidebar-link'>
-                <Link to={item.url}>{item.text}</Link>
+              <li
+                key={item.id}
+                onClick={() => setSidebarOpen(false)}
+                className='sidebar-link '
+              >
+                <Link className='single-sidebar-link' to={item.url}>
+                  {item.text}
+                </Link>
               </li>
             );
           })}
         </ul>
+        <button className='btn' onClick={() => setSidebarOpen(false)}>
+          <Link className='btn' to='/plan'>
+            Create your plan
+          </Link>
+        </button>
       </aside>
     </>
   );
