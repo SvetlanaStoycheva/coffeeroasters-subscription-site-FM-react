@@ -1,7 +1,6 @@
 import { React, useState } from 'react';
 import { links } from '../utils/constants';
 import { Link } from 'react-router-dom';
-import { useGlobalContext } from '../context';
 import logo from '../assets/shared/desktop/logo.svg';
 import { FaBars, FaTimes } from 'react-icons/fa';
 

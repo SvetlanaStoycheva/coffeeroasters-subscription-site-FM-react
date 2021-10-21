@@ -3,6 +3,10 @@ import coffee_01 from '../assets/home/desktop/image-gran-espresso.png';
 import coffee_02 from '../assets/home/desktop/image-planalto.png';
 import coffee_03 from '../assets/home/desktop/image-piccollo.png';
 import coffee_04 from '../assets/home/desktop/image-danche.png';
+import icon_01 from '../assets/home/desktop/icon-coffee-bean.svg';
+import icon_02 from '../assets/home/desktop/icon-gift.svg';
+import icon_03 from '../assets/home/desktop/icon-truck.svg';
+//src/assets/home/desktop/
 
 export const links = [
   { id: 1, text: 'home', url: '/' },
@@ -44,5 +48,46 @@ export const coffeeVariations = [
     title: 'Danche',
     text:
       'Ethiopian hand-harvested blend densely packed with vibrant fruit notes',
+  },
+];
+export const reasons = [
+  {
+    icon: icon_01,
+    title: 'Best quality',
+    text:
+      'Discover an endless variety of the world’s best artisan coffee from each of our roasters.',
+  },
+  {
+    icon: icon_02,
+    title: 'Exclusive benefits',
+    text:
+      'Special offers and swag when you subscribe, including 30% off your first shipment.',
+  },
+  {
+    icon: icon_03,
+    title: 'Free shipping',
+    text:
+      'We cover the cost and coffee is delivered fast. Peak freshness: guaranteed.',
+  },
+];
+
+export const howItWorks = [
+  {
+    number: '01',
+    title: 'Pick your coffee',
+    text:
+      'Select from our evolving range of artisan coffees. Our beans are ethically sourced and we pay fair prices for them. There are new coffees in all profiles every month for you to try out.',
+  },
+  {
+    number: '02',
+    title: 'Choose the frequency',
+    text:
+      'Customize your order frequency, quantity, even your roast style and grind type. Pause, skip or cancel your subscription with no commitment through our online portal.',
+  },
+  {
+    number: '03',
+    title: 'Receive and enjoy!',
+    text:
+      'We ship your package within 48 hours, freshly roasted. Sit back and enjoy award-winning world-class coffees curated to provide a distinct tasting experience.',
   },
 ];
