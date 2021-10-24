@@ -18,7 +18,7 @@ Variables
   --clr-primary-dark-grey-blue: hsl(215, 19%, 25%);
   --clr-primary-pale-orange: hsl(25, 94%, 86%);
   --clr-primary-light-cream: hsl(43, 78%, 98%);
-  --clr-primary-cream: hsl(45, 13%, 82%);
+  --clr-primary-cream: hsl(48, 14%, 86%);
   --clr-primary-grey: hsl(215, 5%, 54%);
   --clr-primary-light-grey: hsl(214, 7%, 80%);
 
@@ -1020,5 +1020,271 @@ About Page
   }
   .single-headquarter {
     justify-items: left;
+  }
+}
+
+/*
+=============== 
+Plan Page
+===============
+*/
+
+/* plan hero */
+.plan-hero {
+  background: url('./assets/plan/mobile/image-hero-blackcup.jpg') center/cover;
+  width: 90vw;
+  height: 24rem;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-bottom: 8rem;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 6rem 2rem;
+}
+.plan-hero h2 {
+  color: var(--clr-primary-light-cream);
+}
+.plan-hero p {
+  color: var(--clr-primary-light-grey);
+  text-align: center;
+}
+@media screen and (min-width: 775px) {
+  .plan-hero {
+    background: url('./assets/plan/tablet/image-hero-blackcup.jpg') center/cover;
+    justify-items: left;
+    padding: 6rem 3rem;
+  }
+  .plan-hero h2 {
+    color: var(--clr-primary-light-cream);
+  }
+  .plan-hero p {
+    text-align: left;
+    width: 25rem;
+  }
+}
+@media screen and (min-width: 950px) {
+  .plan-hero {
+    background: url('./assets/plan/desktop/image-hero-blackcup.jpg')
+      center/cover;
+    padding: 6rem 4rem;
+    max-width: var(--max-width);
+  }
+  .plan-hero p {
+    text-align: left;
+    width: 30rem;
+  }
+}
+
+/* plan steps */
+.plan-steps {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background: var(--clr-primary-dark-grey-blue);
+  color: var(--clr-primary-light-cream);
+  padding: 3rem 2rem;
+}
+
+.single-plan-action h3 {
+  color: var(--clr-primary-light-cream);
+}
+.single-plan-action p {
+  color: var(--clr-primary-light-grey);
+}
+
+@media screen and (min-width: 775px) {
+  .plan-steps {
+    padding-bottom: 1rem;
+  }
+  .plan-lines-container {
+    position: relative;
+    display: inline-block;
+  }
+  .plan-lines {
+    display: inline-block;
+    width: 18rem;
+    height: 2px;
+    background: var(--clr-primary-pale-orange);
+    margin: 0.5rem 0;
+  }
+  .plan-lines:before,
+  .plan-lines:after {
+    content: '';
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    border: solid 2px var(--clr-primary-cyan);
+    float: left;
+    background: var(--clr-primary-dark-grey-blue);
+    margin-top: -0.7rem;
+  }
+  .plan-lines:after {
+    float: right;
+  }
+  .lines-02 {
+    position: absolute;
+    right: -16.35rem;
+    top: 0rem;
+  }
+}
+@media screen and (min-width: 950px) {
+  .plan-steps {
+    padding: 5rem;
+    max-width: var(--max-width);
+    padding-bottom: 2rem;
+  }
+  .lines {
+    display: inline-block;
+    width: 24rem;
+    height: 2px;
+    background: var(--clr-primary-pale-orange);
+    margin: 0.5rem 0;
+  }
+  .lines-02 {
+    position: absolute;
+    right: -22.4rem;
+    top: 0rem;
+  }
+}
+
+/* plan questions */
+.plan-main {
+  margin: 4rem auto;
+  max-width: var(--max-width);
+}
+.plan-main-steps {
+  display: none;
+}
+.plan-main-questions {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.single-plan-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.single-plan-question h3 {
+  color: var(--clr-primary-grey);
+  font-size: 1.5rem;
+}
+.single-plan-question span {
+  color: var(--clr-primary-dark-cyan);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.single-plan-answer {
+  background: var(--clr-primary-cream);
+  padding: 1.2rem 2rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.single-plan-answer-active {
+  background: var(--clr-primary-dark-cyan);
+  padding: 1.2rem 2rem;
+  margin: 1rem;
+  border-radius: 6px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.single-plan-answer:hover {
+  background: var(--clr-primary-pale-orange);
+}
+.plan-answer-title {
+  color: var(--clr-primary-dark-grey-blue);
+  margin-bottom: 1rem;
+}
+.plan-answer-text {
+  color: var(--clr-primary-dark-grey-blue);
+}
+.single-plan-answer-active .plan-answer-title {
+  color: var(--clr-primary-light-cream);
+}
+.single-plan-answer-active .plan-answer-text {
+  color: var(--clr-primary-light-cream);
+}
+
+.summary-container {
+  background: var(--clr-primary-dark-grey-blue);
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90vw;
+  margin: 5rem auto;
+}
+.summary-container h3 {
+  color: var(--clr-primary-grey);
+  font-family: var(--ff-primary);
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 1rem;
+}
+.summary-container h4 {
+  color: var(--clr-primary-cream);
+  font-size: 1.2rem;
+}
+.summary-container h4 span {
+  color: var(--clr-primary-dark-cyan);
+}
+.plan-btn {
+  background: var(--clr-primary-cream);
+}
+.plan-btn-container {
+  display: grid;
+  justify-items: center;
+}
+@media screen and (min-width: 775px) {
+  .three-answers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1rem;
+  }
+}
+@media screen and (min-width: 950px) {
+  .plan-main-steps {
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  .plan-main-steps li {
+    color: var(--clr-primary-grey);
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .plan-main-steps li:hover {
+    color: var(--clr-primary-dark-grey-blue);
+  }
+  .plan-main-steps li span {
+    color: var(--clr-primary-cyan);
+    margin-right: 0.8rem;
+    font-family: var(--ff-secondary);
+    font-size: 0.9rem;
+  }
+  .line {
+    display: inline-block;
+    width: 100%;
+    border-top: 1px solid var(--clr-primary-light-grey);
+  }
+  .plan-main {
+    width: 90vw;
+    max-width: var(--max-width);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 4rem;
+    padding: 2rem;
+  }
+  .plan-main-questions {
+    width: 60vw;
+  }
+  .summary-container {
+    width: 60vw;
+  }
+  .plan-btn-container {
+    justify-items: right;
   }
 }
