@@ -23,7 +23,7 @@ const Footer = () => {
       <div className=' footer-social-links'>
         {socialLinks.map((item) => {
           return (
-            <button key='item.id' type='button' className='footer-social-link'>
+            <button key={item.id} type='button' className='footer-social-link'>
               <Link className='footer-social-icon' to={item.url}>
                 {item.icon}
               </Link>

@@ -1160,11 +1160,14 @@ Plan Page
   width: 90vw;
   margin: 0 auto;
 }
-
+.single-question-answers-container {
+  margin-bottom: 2rem;
+}
 .single-plan-question {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: var(--transition);
 }
 .single-plan-question h3 {
   color: var(--clr-primary-grey);
@@ -1175,6 +1178,9 @@ Plan Page
   font-size: 2rem;
   cursor: pointer;
   transition: var(--transition);
+}
+.three-answers-hidden {
+  display: none;
 }
 .single-plan-answer {
   background: var(--clr-primary-cream);
@@ -1187,7 +1193,7 @@ Plan Page
 .single-plan-answer-active {
   background: var(--clr-primary-dark-cyan);
   padding: 1.2rem 2rem;
-  margin: 1rem;
+  margin: 1rem 0;
   border-radius: 6px;
   transition: var(--transition);
   cursor: pointer;
@@ -1231,8 +1237,21 @@ Plan Page
   color: var(--clr-primary-dark-cyan);
 }
 .plan-btn {
+  color: white;
   background: var(--clr-primary-cream);
+  border: transparent;
+  border-radius: 6px;
+  padding: 1rem 2rem;
+  font-family: var(--ff-secondary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02rem;
+  transition: var(--transition);
 }
+.plan-btn:hover {
+  background: var(--clr-primary-cyan);
+}
+
 .plan-btn-container {
   display: grid;
   justify-items: center;
@@ -1286,5 +1305,20 @@ Plan Page
   }
   .plan-btn-container {
     justify-items: right;
+  }
+  .single-plan-question h3 {
+    font-size: 1.2rem;
+  }
+  .single-plan-question span {
+    font-size: 1.5rem;
+  }
+  .plan-answer-title,
+  .single-plan-answer-active .plan-answer-title {
+    font-size: 1.2rem;
+  }
+  .plan-answer-text,
+  .single-plan-answer-active .plan-answer-text {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
   }
 }

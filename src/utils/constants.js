@@ -103,17 +103,21 @@ export const planSteps = [
 
 export const planQuestions = [
   {
+    id: 1,
     question: 'How do you drink your coffee?',
     answers: [
       {
+        id: 1,
         title: 'Capsule',
         text: 'Compatible with Nespresso systems and similar brewers',
       },
       {
+        id: 2,
         title: 'Filter',
         text: 'For pour over or drip methods like Aeropress, Chemex, and V60',
       },
       {
+        id: 3,
         title: 'Espresso',
         text:
           'Dense and finely ground beans for an intense, flavorful experience',
@@ -121,17 +125,21 @@ export const planQuestions = [
     ],
   },
   {
+    id: 2,
     question: 'What type of coffee?',
     answers: [
       {
+        id: 1,
         title: 'Single origin',
         text: 'Distinct, high quality coffee from a specific family-owned farm',
       },
       {
+        id: 2,
         title: 'Decaf',
         text: 'Just like regular coffee, except the caffeine has been removed',
       },
       {
+        id: 3,
         title: 'Blended',
         text:
           'Combination of two or three dark roasted beans of organic coffees',
@@ -139,17 +147,21 @@ export const planQuestions = [
     ],
   },
   {
+    id: 3,
     question: 'How much would you like?',
     answers: [
       {
+        id: 1,
         title: '250g',
         text: 'Perfect for the solo drinker. Yields about 12 delicious cups.',
       },
       {
+        id: 2,
         title: '500g',
         text: 'Perfect option for a couple. Yields about 40 delectable cups.',
       },
       {
+        id: 3,
         title: '1000g',
         text:
           'Perfect for offices and events. Yields about 90 delightful cups.',
@@ -157,34 +169,42 @@ export const planQuestions = [
     ],
   },
   {
+    id: 4,
     question: 'Want us to grind them?',
     answers: [
       {
+        id: 1,
         title: 'Wholebean',
         text: 'Best choice if you cherish the full sensory experience',
       },
       {
+        id: 2,
         title: 'Filter',
         text: 'For drip or pour-over coffee methods such as V60 or Aeropress',
       },
       {
+        id: 3,
         title: 'Cafetiére',
         text: 'Course ground beans specially suited for french press coffee',
       },
     ],
   },
   {
+    id: 5,
     question: 'How often should we deliver?',
     answers: [
       {
+        id: 1,
         title: 'Every week',
         text: '$14.00 per shipment. Includes free first-class shipping.',
       },
       {
+        id: 2,
         title: 'Every 2 weeks',
         text: '$17.25 per shipment. Includes free priority shipping.',
       },
       {
+        id: 3,
         title: 'Every month',
         text: '$22.50 per shipment. Includes free priority shipping.',
       },

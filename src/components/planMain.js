@@ -1,13 +1,44 @@
 import React, { useState } from 'react';
 import { planSteps, planQuestions } from '../utils/constants';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 
 const PlanMain = () => {
-  const [activeQuestion, setActiveQuestion] = useState(false);
-  const [answerIsActive, setAnswerIsActive] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeAnswerIndex, setActiveAnswerIndex] = useState(null);
+  const [property_01, setProperty_01] = useState('');
+  const [property_02, setProperty_02] = useState('');
+  const [property_03, setProperty_03] = useState('');
+  const [property_04, setProperty_04] = useState('');
+  const [property_05, setProperty_05] = useState('');
 
-  const toggleActiveQuestion = () => {};
+  const toggleActiveQuestion = (index) => {
+    if (activeIndex === index) {
+      setActiveIndex(null);
+    } else setActiveIndex(index);
+  };
+
+  const handleChoosenAnswer = (index) => {
+    setActiveAnswerIndex(index);
+
+    let name = planQuestions.find((item) => item.id - 1 === activeIndex);
+    name = name.answers.find((answ) => answ.id - 1 === index).title;
+    // console.log(name);
+    if (activeIndex === 0) {
+      setProperty_01(name);
+    } else if (activeIndex === 1) {
+      setProperty_02(name);
+    } else if (activeIndex === 2) {
+      setProperty_03(name);
+    } else if (activeIndex === 3) {
+      setProperty_04(name);
+    } else if (activeIndex === 4) {
+      setProperty_05(name);
+    }
+  };
+
+  const handleCreatePlan = () => {
+    console.log('click');
+  };
 
   return (
     <section className='plan-main'>
@@ -31,18 +62,29 @@ const PlanMain = () => {
               <div className='single-question-answers-container' key={index}>
                 <div className='single-plan-question'>
                   <h3>{question}</h3>
-                  <span onClick={toggleActiveQuestion}>
-                    {activeQuestion ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                  <span onClick={() => toggleActiveQuestion(index)}>
+                    {activeIndex === index ? (
+                      <IoIosArrowUp />
+                    ) : (
+                      <IoIosArrowDown />
+                    )}
                   </span>
                 </div>
-                <div className='three-answers'>
+                <div
+                  className={
+                    activeIndex === index
+                      ? 'three-answers'
+                      : 'three-answers-hidden'
+                  }
+                >
                   {answers.map((item, index) => {
                     return (
                       <div
+                        onClick={() => handleChoosenAnswer(index)}
                         className={
-                          answerIsActive
-                            ? ' single-plan-answer-active'
-                            : ' single-plan-answer'
+                          activeAnswerIndex === index
+                            ? 'single-plan-answer-active'
+                            : 'single-plan-answer'
                         }
                         key={index}
                       >
@@ -60,13 +102,36 @@ const PlanMain = () => {
         <article className='summary-container'>
           <h3>order summary</h3>
           <h4>
-            “I drink my coffee using <span> _____</span>, with a{' '}
-            <span> _____</span> type of bean. <span> _____</span>ground ala
-            <span> _____</span>, sent to me <span> _____</span>.”
+            “I drink my coffee using{'  '}
+            <span> {property_01 ? property_01 : '_____'}</span>, with a{' '}
+            <span> {property_02 ? property_02 : '_____'}</span> type of bean.{' '}
+            <span> {property_03 ? property_03 : '_____'}</span> ground ala
+            <span> {property_04 ? property_04 : '_____'}</span>, sent to me{' '}
+            <span> {property_05 ? property_05 : '_____'}</span>.”
           </h4>
         </article>
         <div className='plan-btn-container'>
-          <button className='plan-btn btn'>Create my plan!</button>
+          <button
+            onClick={handleCreatePlan}
+            disabled={
+              !property_01 ||
+              !property_02 ||
+              !property_03 ||
+              !property_04 ||
+              !property_05
+            }
+            className={
+              property_01 &&
+              property_02 &&
+              property_03 &&
+              property_04 &&
+              property_05
+                ? 'btn'
+                : 'plan-btn'
+            }
+          >
+            Create my plan!
+          </button>
         </div>
       </div>
     </section>
