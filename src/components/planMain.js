@@ -5,6 +5,7 @@ import { FaTimes } from 'react-icons/fa';
 
 const PlanMain = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [activeStepIndex, setActiveStepIndex] = useState(null);
   const [activeAnswerIndex, setActiveAnswerIndex] = useState(null);
   const [property_01, setProperty_01] = useState('');
   const [property_02, setProperty_02] = useState('');
@@ -15,10 +16,17 @@ const PlanMain = () => {
   const [price, setPrice] = useState('');
   const [closeModal, setCloseModal] = useState(false);
 
+  const openTheCorrectStep = (index) => {
+    setActiveIndex(index);
+    setActiveStepIndex(index);
+    setActiveAnswerIndex(null);
+  };
+
   const toggleActiveQuestion = (index) => {
     if (activeIndex === index) {
       setActiveIndex(null);
     } else setActiveIndex(index);
+    setActiveAnswerIndex(null);
   };
 
   const handleChoosenAnswer = (index) => {
@@ -48,17 +56,21 @@ const PlanMain = () => {
     }
   };
 
-  const handleActiveModal = () => {
-    setActiveModal(true);
-  };
-
   return (
     <section className='plan-main'>
       {/* plan steps */}
       <div className='plan-main-steps'>
         {planSteps.map((item, index) => {
           return (
-            <li key={index}>
+            <li
+              className={
+                activeStepIndex === index
+                  ? 'plan-main-step plan-main-step-active'
+                  : 'plan-main-step'
+              }
+              key={index}
+              onClick={() => openTheCorrectStep(index)}
+            >
               <span>{item.number}</span> {item.name}
               <hr className='line' />
             </li>
@@ -124,7 +136,7 @@ const PlanMain = () => {
         </article>
         <div className='plan-btn-container'>
           <button
-            onClick={handleActiveModal}
+            onClick={() => setActiveModal(true)}
             disabled={
               !property_01 ||
               !property_02 ||
@@ -147,44 +159,44 @@ const PlanMain = () => {
         </div>
       </div>
       {/* modal */}
-      {/* {activeModal && ( */}
-      <article
-        className={closeModal ? 'modal-overlay' : 'show-modal modal-overlay'}
-      >
-        <div className='summary-container modal-container'>
-          <div className='modal-header'>
-            <h3>order summary</h3>
-            <button
-              className='close-modal-btn'
-              type='button'
-              onClick={() => {
-                setCloseModal(true);
-              }}
-            >
-              <FaTimes />
-            </button>
-          </div>
+      {activeModal && (
+        <article
+          className={closeModal ? 'modal-overlay' : 'show-modal modal-overlay'}
+        >
+          <div className='summary-container modal-container'>
+            <div className='modal-header'>
+              <h3>order summary</h3>
+              <button
+                className='close-modal-btn'
+                type='button'
+                onClick={() => {
+                  setCloseModal(true);
+                }}
+              >
+                <FaTimes />
+              </button>
+            </div>
 
-          <h4>
-            “I drink my coffee using{'  '}
-            <span> {property_01 ? property_01 : '_____'}</span>, with a{' '}
-            <span> {property_02 ? property_02 : '_____'}</span> type of bean.{' '}
-            <span> {property_03 ? property_03 : '_____'}</span> ground ala
-            <span> {property_04 ? property_04 : '_____'}</span>, sent to me{' '}
-            <span> {property_05 ? property_05 : '_____'}</span>.”
-          </h4>
-          <p>
-            Is this correct? You can proceed to checkout or go back to plan
-            selection if something is off. Subscription discount codes can also
-            be redeemed at the checkout.
-          </p>
-          <div className='modal-footer'>
-            <h4>{`${price} / shipment`}</h4>
-            <div className='checkout-btn btn'>Checkout</div>
+            <h4>
+              “I drink my coffee using{'  '}
+              <span> {property_01 ? property_01 : '_____'}</span>, with a{' '}
+              <span> {property_02 ? property_02 : '_____'}</span> type of bean.{' '}
+              <span> {property_03 ? property_03 : '_____'}</span> ground ala
+              <span> {property_04 ? property_04 : '_____'}</span>, sent to me{' '}
+              <span> {property_05 ? property_05 : '_____'}</span>.”
+            </h4>
+            <p>
+              Is this correct? You can proceed to checkout or go back to plan
+              selection if something is off. Subscription discount codes can
+              also be redeemed at the checkout.
+            </p>
+            <div className='modal-footer'>
+              <h4>{`${price} / shipment`}</h4>
+              <div className='checkout-btn btn'>Checkout</div>
+            </div>
           </div>
-        </div>
-      </article>
-      {/* )} */}
+        </article>
+      )}
     </section>
   );
 };

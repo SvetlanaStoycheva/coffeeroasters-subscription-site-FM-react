@@ -94,11 +94,11 @@ export const howItWorks = [
 
 // planMain
 export const planSteps = [
-  { number: '01', name: 'Preferences' },
-  { number: '02', name: 'Bean type' },
-  { number: '03', name: 'Quantity' },
-  { number: '04', name: 'Grind option' },
-  { number: '05', name: 'Deliveries' },
+  { id: 1, number: '01', name: 'Preferences' },
+  { id: 2, number: '02', name: 'Bean type' },
+  { id: 3, number: '03', name: 'Quantity' },
+  { id: 4, number: '04', name: 'Grind option' },
+  { id: 5, number: '05', name: 'Deliveries' },
 ];
 
 export const planQuestions = [
