@@ -16,12 +16,14 @@ const PlanMain = () => {
   const [price, setPrice] = useState('');
   const [closeModal, setCloseModal] = useState(false);
 
+  //when a plan step is clicked, setActiveStepIndex for active btn css; setActiveIndex to make quastion active and show its answers. After an answer is clicked and choosen, we have to setActiveAnswerIndex(null) so that when we click the next question, we don't see the same active answer from before (lets say we clicked the second one, it gets active and with green background, we need to reset the index, so that when we click the next question, all the answers are with neutral background.)
   const openTheCorrectStep = (index) => {
     setActiveIndex(index);
     setActiveStepIndex(index);
     setActiveAnswerIndex(null);
   };
 
+  //when icon is clicked to open the answers; setActiveIndex(index) to show the answers; If a question is already open => setActiveIndex(null) in order to close it. So that only one question is open at the time. If activeIndex === index, questions div have class 'show'.
   const toggleActiveQuestion = (index) => {
     if (activeIndex === index) {
       setActiveIndex(null);
@@ -29,19 +31,21 @@ const PlanMain = () => {
     setActiveAnswerIndex(null);
   };
 
+  //when a certain answer is clicked, set active css class for the clicked answer;
   const handleChoosenAnswer = (index) => {
     setActiveAnswerIndex(index);
 
+    //find current object of the clicked question.
     const properties = planQuestions.find(
       (item) => item.id - 1 === activeIndex
     );
+    //find the name and price in the current object. The 'name' is to be put in the order summary container; If activeIndex === 0, that means we have the first question open, the 'name' should go to the first '______' in summary. I use 5 state properties, that are '' at the beginnimg. When the first question is opened, setProperty_01(name) => name takes the first '______' in the summary.
     const name = properties.answers.find((answ) => answ.id - 1 === index).title;
     let price = properties.answers.find((answ) => answ.id - 1 === index).text;
-    // finding the price to put it in the moduce
+    // finding the price to put it in the moduce. The price is only in the answers of the 5th question. It is shown in the modal.
     const indexForPrice = price.indexOf('p');
     price = price.slice(0, indexForPrice);
 
-    // console.log(name);
     if (activeIndex === 0) {
       setProperty_01(name);
     } else if (activeIndex === 1) {
@@ -55,6 +59,8 @@ const PlanMain = () => {
       setPrice(price);
     }
   };
+
+  //Button 'Create my plan!' can be clicked only if the summary is completed. If any of the state values in properties01, ... are falsy, the button is disabled. When the sumary is completly full, the button become an active class and can be clicked. When clicked it opens the modal => setActiveModal(true)
 
   return (
     <section className='plan-main'>
